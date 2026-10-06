@@ -12,7 +12,7 @@ root=$(cd "$(dirname "$0")/.." && pwd)
 sb=$root/.sandbox/$name
 mkdir -p "$sb"
 m=${MAGPIE:-magpie}
-run() { env -i PATH="$PATH" HOME="$sb" XDG_CONFIG_HOME="$sb/.config" XDG_CACHE_HOME="$sb/.cache" "$m" "$@"; }
+run() { env -i PATH="$PATH" HOME="$sb" USERPROFILE="$sb" XDG_CONFIG_HOME="$sb/.config" XDG_CACHE_HOME="$sb/.cache" "$m" "$@"; }
 if [ ! -f "$sb/.added" ]; then
   run plugin add "$root/packages/$name" </dev/null
   touch "$sb/.added"
